@@ -1,0 +1,42 @@
+/* Custom scrollbar & subtle visual polish */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+}
+
+/* Smooth reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active navigation highlight */
+.nav-link.active {
+    color: #34d399;
+    font-weight: 600;
+}
+
+/* Filter button active state */
+.skill-filter-btn.active {
+    background-color: #34d399;
+    color: #020617;
+    border-color: #34d399;
+}

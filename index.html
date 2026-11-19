@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohit Shinde | Mechanical Engineer</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Linking External CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#0a0a0c] text-slate-100 font-sans selection:bg-emerald-500 selection:text-black min-h-screen overflow-x-hidden">
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-500 z-[60] w-0 transition-all duration-150"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-[70] translate-y-20 opacity-0 transition-all duration-300 px-4 py-3 rounded-xl bg-emerald-400 text-black font-semibold text-sm shadow-xl">
+        Copied to clipboard!
+    </div>
 
     <!-- Glowing Background Orbs -->
     <div class="fixed top-[-10%] left-[15%] w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="fixed bottom-[-10%] right-[15%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0a0c]/80 border-b border-slate-800/60 px-6 py-4">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0a0c]/85 border-b border-slate-800/70 px-6 py-4">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="#about" class="text-2xl font-black tracking-tight group">
                 Rohit<span class="text-emerald-400 group-hover:text-blue-400 transition-colors duration-300">.</span>
             </a>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
-                <a href="#education" class="hover:text-emerald-400 transition-colors">Education</a>
-                <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400" id="nav-links">
+                <a href="#about" class="nav-link hover:text-emerald-400 transition-colors">About</a>
+                <a href="#education" class="nav-link hover:text-emerald-400 transition-colors">Education</a>
+                <a href="#skills" class="nav-link hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#projects" class="nav-link hover:text-emerald-400 transition-colors">Projects</a>
+                <a href="#contact" class="nav-link hover:text-emerald-400 transition-colors">Contact</a>
             </div>
 
             <a href="#contact" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-black bg-emerald-400 hover:bg-emerald-300 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/20">
@@ -37,27 +43,43 @@
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 py-12 space-y-24 relative z-10">
-        
+
         <!-- Hero Section -->
-        <section id="about" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 pt-6">
+        <section id="about" class="reveal flex flex-col-reverse md:flex-row items-center justify-between gap-12 pt-6">
             <div class="flex-1 space-y-6 text-center md:text-left">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Aspiring Mechanical Engineer
+                    Aspiring Mechanical Engineer • Diploma + B.E.
                 </div>
-                
+
                 <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
-                    I'm Rohit Shinde, Engineering Precision & <br />
-                    <span class="bg-gradient-to-r from-emerald-100 via-teal-200 to-blue-400 bg-clip-text text-transparent">
+                    I'm Rohit Shinde, Engineering Precision &amp; <br />
+                    <span class="bg-gradient-to-r from-emerald-200 via-teal-200 to-blue-400 bg-clip-text text-transparent">
                         Mechanical Solutions.
                     </span>
                 </h1>
 
-                <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl">
-                    Hi, I'm <strong class="text-slate-200">Rohit Anil Shinde</strong>. A dedicated Mechanical Engineering Student focused on Design, R&amp;D, Manufacturing, and Government &amp; PSU Engineering sectors.
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+                    Hi, I'm <strong class="text-slate-200">Rohit Anil Shinde</strong>. A dedicated Mechanical Engineering student focused on Design, R&amp;D, Manufacturing, and Government &amp; PSU Engineering sectors.
                 </p>
 
-                <!-- Job Role Highlight Badge Box -->
+                <!-- Quick Engineering Highlights -->
+                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto md:mx-0 pt-1">
+                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                        <div class="text-lg font-extrabold text-emerald-400">73%</div>
+                        <div class="text-[11px] text-slate-400 font-mono">Diploma (MSBTE)</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                        <div class="text-lg font-extrabold text-blue-400">3 Mos</div>
+                        <div class="text-[11px] text-slate-400 font-mono">Shop-Floor Exp</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                        <div class="text-lg font-extrabold text-teal-300">2nd Yr</div>
+                        <div class="text-[11px] text-slate-400 font-mono">B.E. Mechanical</div>
+                    </div>
+                </div>
+
+                <!-- Target Domains -->
                 <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-emerald-400 flex flex-wrap gap-2 justify-center md:justify-start">
                     <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Design</span>
                     <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">R&amp;D</span>
@@ -67,7 +89,7 @@
 
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
                     <a href="#projects" class="px-6 py-3 rounded-xl bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition-all duration-300 shadow-xl shadow-emerald-500/15 transform hover:-translate-y-0.5">
-                        View Projects 🚀
+                        View Projects
                     </a>
                     <a href="#contact" class="px-6 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:border-slate-700 hover:bg-slate-800/80 transition-all duration-300">
                         Get in Touch
@@ -78,23 +100,26 @@
             <!-- Profile Photo Container -->
             <div class="relative group">
                 <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-75 transition duration-700"></div>
-                
+
                 <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1 group-hover:border-emerald-400/60">
                     <img src="pic.jpeg" alt="Rohit Shinde" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/60 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-3 left-3 right-3 px-3 py-2 rounded-xl bg-[#0a0a0c]/80 backdrop-blur-md border border-slate-700/70 text-xs flex justify-between items-center">
+                        <span class="font-semibold text-slate-200">Rohit Anil Shinde</span>
+                        <span class="font-mono text-emerald-400">B.E. Mech</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEPARATE EDUCATION INFORMATION SECTION -->
-        <section id="education" class="space-y-8">
+        <!-- Education Section -->
+        <section id="education" class="reveal space-y-8">
             <div class="space-y-2">
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Academic Qualification</h2>
                 <p class="text-slate-400 text-sm">Educational milestones and institutional background.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Education Card 1 (Current B.E.) -->
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-emerald-500/40 hover:border-emerald-500 transition-all duration-300 space-y-3 shadow-lg shadow-emerald-500/5">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-mono px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -103,72 +128,79 @@
                         <span class="text-xs text-emerald-400 font-mono font-bold">Pursuing (2nd Year)</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-100">Bachelor of Engineering</h3>
-                    <p class="text-slate-400 text-sm">Currently pursuing second-year B.E. in Mechanical Engineering with focus on advanced design &amp; core concepts.</p>
+                    <p class="text-slate-400 text-sm">Currently pursuing second-year B.E. in Mechanical Engineering with focus on design &amp; core mechanical principles.</p>
                 </div>
 
-                <!-- Education Card 2 (Diploma) -->
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-3">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-mono px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">
                             Diploma
                         </span>
-                        <span class="text-xs text-slate-400 font-mono">2026 | 73% [Completed]</span>
+                        <span class="text-xs text-slate-400 font-mono">2026 | 73%</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-100">MSBTE Board</h3>
-                    <p class="text-slate-400 text-sm">Completed Diploma in Mechanical Engineering with practical technical foundation.</p>
+                    <p class="text-slate-400 text-sm">Completed Diploma in Mechanical Engineering with practical technical and shop-floor foundation.</p>
                 </div>
 
-                <!-- Education Card 3 (SSC) -->
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-3">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-mono px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
                             SSC (10th)
                         </span>
-                        <span class="text-xs text-slate-400 font-mono">2023 | 70.60% [Completed]</span>
+                        <span class="text-xs text-slate-400 font-mono">2023 | 70.60%</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-100">SSC Board</h3>
-                    <p class="text-slate-400 text-sm">Completed secondary school education with solid academic standing.</p>
+                    <p class="text-slate-400 text-sm">Completed secondary school education with consistent academic standing.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Technical & Mechanical Skills Section -->
-        <section id="skills" class="space-y-8">
-            <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Technical Expertise &amp; Skills</h2>
-                <p class="text-slate-400 text-sm">Core mechanical design software, tools, and maintenance expertise.</p>
+        <!-- Skills Section with Filter -->
+        <section id="skills" class="reveal space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div class="space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Technical Expertise &amp; Skills</h2>
+                    <p class="text-slate-400 text-sm">Filter skills by category to inspect core capabilities.</p>
+                </div>
+
+                <div class="flex flex-wrap gap-2" id="skill-filters">
+                    <button data-filter="all" class="skill-filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-400 text-black">All</button>
+                    <button data-filter="cad" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700">CAD &amp; Design</button>
+                    <button data-filter="shopfloor" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700">Shop-Floor &amp; EV</button>
+                    <button data-filter="tools" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700">Office &amp; Digital</button>
+                </div>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="skills-grid">
+                <div data-category="cad" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Design Tool</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">AutoCAD</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="cad" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Design Tool</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">CATIA</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="shopfloor" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Domain</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">EV Maintenance</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="shopfloor" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Tools</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">Measurement Tools</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="tools" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Certification</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">MSCIT</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="tools" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Productivity</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">Advance Excel</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="tools" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Office Suite</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">MS Office &amp; Outlook</div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
+                <div data-category="shopfloor" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
                     <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Core Concepts</div>
                     <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">Mechanical Engineering</div>
                 </div>
@@ -176,16 +208,15 @@
         </section>
 
         <!-- Projects & Internship Section -->
-        <section id="projects" class="space-y-8">
+        <section id="projects" class="reveal space-y-8">
             <div class="space-y-2">
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Projects &amp; Experience</h2>
-                <p class="text-slate-400 text-sm">Industrial internship training and mechanical engineering projects.</p>
+                <p class="text-slate-400 text-sm">Click any card to view key technical takeaways.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- Project 1 -->
-                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between space-y-6 group hover:shadow-2xl hover:shadow-emerald-500/5">
-                    <div class="space-y-4">
+                <div data-detail="Focuses on hydraulic force transmission, structural load stability, and practical industrial pressing applications." class="detail-card cursor-pointer p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between space-y-4 group">
+                    <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-xs font-mono px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                                 Mechanical Project
@@ -199,11 +230,11 @@
                             Designed and executed a hydraulic press machine model focusing on fluid power, structural integrity, and industrial pressing applications.
                         </p>
                     </div>
+                    <div class="detail-box hidden pt-3 border-t border-slate-800 text-xs text-emerald-300 font-mono"></div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between space-y-6 group hover:shadow-2xl hover:shadow-emerald-500/5">
-                    <div class="space-y-4">
+                <div data-detail="Hands-on exposure to manufacturing processes, preventive equipment checks, and disciplined industrial safety practices." class="detail-card cursor-pointer p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between space-y-4 group">
+                    <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-xs font-mono px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">
                                 Internship Experience
@@ -214,37 +245,45 @@
                             Mapson India Pvt Ltd, Bhosari
                         </h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Completed a 3-month rigorous industrial internship gaining practical exposure to manufacturing workflows, machinery maintenance, and shop floor operations.
+                            Completed a 3-month industrial internship gaining practical exposure to manufacturing workflows, machinery maintenance, and shop floor operations.
                         </p>
                     </div>
+                    <div class="detail-box hidden pt-3 border-t border-slate-800 text-xs text-blue-300 font-mono"></div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="relative overflow-hidden p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-slate-900/90 to-[#0a0a0c] border border-slate-800 text-center space-y-6">
+        <section id="contact" class="reveal relative overflow-hidden p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-slate-900/90 to-[#0a0a0c] border border-slate-800 text-center space-y-6">
             <div class="absolute inset-0 bg-emerald-500/5 blur-3xl pointer-events-none"></div>
-            
+
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100">Let's Connect &amp; Collaborate</h2>
             <p class="text-slate-400 max-w-lg mx-auto text-sm leading-relaxed">
-                Medankarwadi, Chakan, Pune - 410501. Feel free to reach out for professional opportunities or technical discussions!
+                Medankarwadi, Chakan, Pune - 410501. Reach out for internships, entry-level engineering roles, or technical discussions.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
                 <a href="mailto:rohitshinde888800@gmail.com" class="px-6 py-3.5 rounded-xl bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition-all duration-300 shadow-lg shadow-emerald-500/20">
-                    📧 rohitshinde888800@gmail.com
+                    rohitshinde888800@gmail.com
                 </a>
+                <button type="button" data-copy="rohitshinde888800@gmail.com" class="copy-btn px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono hover:border-emerald-400 transition">
+                    Copy Email
+                </button>
                 <a href="tel:7741098898" class="px-6 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-semibold hover:bg-slate-800 hover:border-slate-600 transition-all duration-300">
-                    📞 +91 7741098898
+                    +91 7741098898
                 </a>
+                <button type="button" data-copy="+917741098898" class="copy-btn px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono hover:border-emerald-400 transition">
+                    Copy Phone
+                </button>
             </div>
         </section>
 
     </main>
 
     <footer class="border-t border-slate-800/60 py-8 text-center text-slate-500 text-xs">
-        <p>&copy; 2026 Rohit Anil Shinde. Built for Mechanical Engineering Portfolio.</p>
+        <p>&copy; 2026 Rohit Anil Shinde. Mechanical Engineering Portfolio.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
