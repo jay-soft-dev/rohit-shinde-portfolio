@@ -1,287 +1,221 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohit Shinde | Mechanical Engineer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rohit Anil Shinde | Mechanical Engineering Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-[#0a0a0c] text-slate-100 font-sans selection:bg-emerald-500 selection:text-black min-h-screen overflow-x-hidden">
+<body class="bg-[#0c0e12] text-stone-100 antialiased selection:bg-amber-400 selection:text-stone-950 min-h-screen overflow-x-hidden">
 
-    <!-- Top Scroll Progress Bar -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-500 z-[60] w-0 transition-all duration-150"></div>
+    <!-- Subtle CAD Grid Overlay -->
+    <div class="cad-grid fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-[70] translate-y-20 opacity-0 transition-all duration-300 px-4 py-3 rounded-xl bg-emerald-400 text-black font-semibold text-sm shadow-xl">
-        Copied to clipboard!
+    <!-- Top Spec Ticker Bar -->
+    <div class="relative z-20 border-b border-stone-800/80 bg-[#11141a]/90 px-4 py-2 text-[11px] font-mono text-stone-400">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+                <span>SPEC SHEET // MECH-CAD-MFG</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span>CHAKAN, PUNE • 410501</span>
+                <span class="text-amber-400">OPEN TO INTERNSHIPS &amp; ROLES</span>
+            </div>
+        </div>
     </div>
 
-    <!-- Glowing Background Orbs -->
-    <div class="fixed top-[-10%] left-[15%] w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="fixed bottom-[-10%] right-[15%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <!-- Toast Alert -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-16 opacity-0 transition-all duration-300 px-4 py-2.5 rounded-lg bg-amber-400 text-stone-950 font-semibold text-xs font-mono shadow-2xl">
+        Copied
+    </div>
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0a0c]/85 border-b border-slate-800/70 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#about" class="text-2xl font-black tracking-tight group">
-                Rohit<span class="text-emerald-400 group-hover:text-blue-400 transition-colors duration-300">.</span>
+    <!-- Main Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#0c0e12]/80 border-b border-stone-800/70">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-2.5 group">
+                <span class="w-9 h-9 rounded-lg border border-amber-400/50 bg-amber-400/10 flex items-center justify-center font-mono font-bold text-amber-400 text-sm group-hover:bg-amber-400 group-hover:text-stone-950 transition">
+                    RS
+                </span>
+                <div>
+                    <div class="font-bold tracking-tight text-stone-100 leading-none">Rohit Shinde</div>
+                    <div class="text-[10px] font-mono text-stone-400 mt-1">Mechanical Engineer</div>
+                </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400" id="nav-links">
-                <a href="#about" class="nav-link hover:text-emerald-400 transition-colors">About</a>
-                <a href="#education" class="nav-link hover:text-emerald-400 transition-colors">Education</a>
-                <a href="#skills" class="nav-link hover:text-emerald-400 transition-colors">Skills</a>
-                <a href="#projects" class="nav-link hover:text-emerald-400 transition-colors">Projects</a>
-                <a href="#contact" class="nav-link hover:text-emerald-400 transition-colors">Contact</a>
-            </div>
+            <nav class="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-stone-400">
+                <a href="#profile" class="hover:text-amber-400 transition">Profile</a>
+                <a href="#journey" class="hover:text-amber-400 transition">Journey</a>
+                <a href="#work" class="hover:text-amber-400 transition">Work &amp; Exp</a>
+                <a href="#skills" class="hover:text-amber-400 transition">Skills</a>
+                <a href="#contact" class="hover:text-amber-400 transition">Contact</a>
+            </nav>
 
-            <a href="#contact" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-black bg-emerald-400 hover:bg-emerald-300 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/20">
-                Let's Talk
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-950 font-mono text-xs font-bold transition">
+                Connect
             </a>
         </div>
-    </nav>
+    </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-24 relative z-10">
+    <main id="top" class="relative z-10 max-w-6xl mx-auto px-6 py-12 space-y-24">
 
-        <!-- Hero Section -->
-        <section id="about" class="reveal flex flex-col-reverse md:flex-row items-center justify-between gap-12 pt-6">
-            <div class="flex-1 space-y-6 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Aspiring Mechanical Engineer • Diploma + B.E.
+        <!-- Asymmetric Editorial / Blueprint Hero -->
+        <section id="profile" class="grid lg:grid-cols-12 gap-10 items-center pt-2">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded border border-stone-700 bg-stone-900/80 text-xs font-mono text-amber-300">
+                    <span>01 /</span>
+                    <span>DESIGN • R&amp;D • MANUFACTURING • GOVT &amp; PSU</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
-                    I'm Rohit Shinde, Engineering Precision &amp; <br />
-                    <span class="bg-gradient-to-r from-emerald-200 via-teal-200 to-blue-400 bg-clip-text text-transparent">
-                        Mechanical Solutions.
-                    </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08]">
+                    Precision in Motion, <br />
+                    <span class="text-amber-400">Built for Real Industry.</span>
                 </h1>
 
-                <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
-                    Hi, I'm <strong class="text-slate-200">Rohit Anil Shinde</strong>. A dedicated Mechanical Engineering student focused on Design, R&amp;D, Manufacturing, and Government &amp; PSU Engineering sectors.
+                <p class="text-stone-300/90 text-base sm:text-lg leading-relaxed max-w-2xl">
+                    I&apos;m <strong class="text-white font-semibold">Rohit Anil Shinde</strong>, a second-year B.E. Mechanical Engineering student with an MSBTE Diploma background and practical shop-floor training. I focus on mechanical design, industrial equipment understanding, and structured engineering execution[cite: 6].
                 </p>
 
-                <!-- Quick Engineering Highlights -->
-                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto md:mx-0 pt-1">
-                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-                        <div class="text-lg font-extrabold text-emerald-400">73%</div>
-                        <div class="text-[11px] text-slate-400 font-mono">Diploma (MSBTE)</div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-                        <div class="text-lg font-extrabold text-blue-400">3 Mos</div>
-                        <div class="text-[11px] text-slate-400 font-mono">Shop-Floor Exp</div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-                        <div class="text-lg font-extrabold text-teal-300">2nd Yr</div>
-                        <div class="text-[11px] text-slate-400 font-mono">B.E. Mechanical</div>
-                    </div>
-                </div>
-
-                <!-- Target Domains -->
-                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-emerald-400 flex flex-wrap gap-2 justify-center md:justify-start">
-                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Design</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">R&amp;D</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Manufacturing</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Govt &amp; PSU</span>
-                </div>
-
-                <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
-                    <a href="#projects" class="px-6 py-3 rounded-xl bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition-all duration-300 shadow-xl shadow-emerald-500/15 transform hover:-translate-y-0.5">
-                        View Projects
+                <div class="flex flex-wrap gap-3 pt-1">
+                    <a href="#work" class="px-6 py-3 rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-sm transition">
+                        Explore Work
                     </a>
-                    <a href="#contact" class="px-6 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:border-slate-700 hover:bg-slate-800/80 transition-all duration-300">
-                        Get in Touch
-                    </a>
+                    <button type="button" data-copy="rohitshinde888800@gmail.com" class="copy-btn px-5 py-3 rounded-lg border border-stone-700 bg-stone-900/70 hover:border-amber-400/60 text-stone-200 font-mono text-xs transition">
+                        Copy Email
+                    </button>
                 </div>
             </div>
 
-            <!-- Profile Photo Container -->
-            <div class="relative group">
-                <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-75 transition duration-700"></div>
-
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1 group-hover:border-emerald-400/60">
-                    <img src="pic.jpeg" alt="Rohit Shinde" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-3 left-3 right-3 px-3 py-2 rounded-xl bg-[#0a0a0c]/80 backdrop-blur-md border border-slate-700/70 text-xs flex justify-between items-center">
-                        <span class="font-semibold text-slate-200">Rohit Anil Shinde</span>
-                        <span class="font-mono text-emerald-400">B.E. Mech</span>
+            <!-- Framed Portrait Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 sm:w-80 rounded-2xl border border-stone-700/80 bg-[#12161d] p-3 shadow-2xl">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-stone-400 px-1 pb-2">
+                        <span>FIG 1.0 // PORTRAIT</span>
+                        <span class="text-amber-400">ACTIVE</span>
+                    </div>
+                    <div class="aspect-square rounded-xl overflow-hidden border border-stone-800 bg-stone-900">
+                        <img src="pic.jpeg" alt="Rohit Shinde" class="w-full h-full object-cover object-top" />
+                    </div>
+                    <div class="pt-3 px-1 flex items-center justify-between text-xs">
+                        <div>
+                            <div class="font-bold text-stone-100">Rohit Anil Shinde</div>
+                            <div class="text-stone-400 font-mono text-[11px]">B.E. Mechanical (2nd Yr)</div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded bg-stone-800 font-mono text-[11px] text-amber-300">73% Dip.</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education" class="reveal space-y-8">
-            <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Academic Qualification</h2>
-                <p class="text-slate-400 text-sm">Educational milestones and institutional background.</p>
+        <!-- Interactive Journey Tabs (Education & Milestones) -->
+        <section id="journey" class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-stone-800 pb-5">
+                <div>
+                    <div class="text-xs font-mono text-amber-400 uppercase tracking-widest">02 / Academic &amp; Growth</div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Engineering Journey</h2>
+                </div>
+
+                <div class="inline-flex rounded-lg border border-stone-800 bg-stone-900/80 p-1 font-mono text-xs" id="journey-tabs">
+                    <button type="button" data-tab="be" class="journey-tab active px-3.5 py-1.5 rounded-md bg-amber-400 text-stone-950 font-bold">B.E. (Current)</button>
+                    <button type="button" data-tab="diploma" class="journey-tab px-3.5 py-1.5 rounded-md text-stone-400 hover:text-stone-100">Diploma</button>
+                    <button type="button" data-tab="ssc" class="journey-tab px-3.5 py-1.5 rounded-md text-stone-400 hover:text-stone-100">SSC (10th)</button>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-6 rounded-2xl bg-slate-900/50 border border-emerald-500/40 hover:border-emerald-500 transition-all duration-300 space-y-3 shadow-lg shadow-emerald-500/5">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-mono px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                            B.E. Mechanical
-                        </span>
-                        <span class="text-xs text-emerald-400 font-mono font-bold">Pursuing (2nd Year)</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-100">Bachelor of Engineering</h3>
-                    <p class="text-slate-400 text-sm">Currently pursuing second-year B.E. in Mechanical Engineering with focus on design &amp; core mechanical principles.</p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-mono px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                            Diploma
-                        </span>
-                        <span class="text-xs text-slate-400 font-mono">2026 | 73%</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-100">MSBTE Board</h3>
-                    <p class="text-slate-400 text-sm">Completed Diploma in Mechanical Engineering with practical technical and shop-floor foundation.</p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-mono px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                            SSC (10th)
-                        </span>
-                        <span class="text-xs text-slate-400 font-mono">2023 | 70.60%</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-100">SSC Board</h3>
-                    <p class="text-slate-400 text-sm">Completed secondary school education with consistent academic standing.</p>
-                </div>
+            <div class="rounded-2xl border border-stone-800 bg-[#11141a]/90 p-6 sm:p-8" id="journey-panel">
+                <!-- Populated dynamically via script.js -->
             </div>
         </section>
 
-        <!-- Skills Section with Filter -->
-        <section id="skills" class="reveal space-y-8">
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                <div class="space-y-2">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Technical Expertise &amp; Skills</h2>
-                    <p class="text-slate-400 text-sm">Filter skills by category to inspect core capabilities.</p>
-                </div>
-
-                <div class="flex flex-wrap gap-2" id="skill-filters">
-                    <button data-filter="all" class="skill-filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-400 text-black">All</button>
-                    <button data-filter="cad" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700">CAD &amp; Design</button>
-                    <button data-filter="shopfloor" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700">Shop-Floor &amp; EV</button>
-                    <button data-filter="tools" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700">Office &amp; Digital</button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="skills-grid">
-                <div data-category="cad" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Design Tool</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">AutoCAD</div>
-                </div>
-                <div data-category="cad" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Design Tool</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">CATIA</div>
-                </div>
-                <div data-category="shopfloor" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Domain</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">EV Maintenance</div>
-                </div>
-                <div data-category="shopfloor" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Tools</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">Measurement Tools</div>
-                </div>
-                <div data-category="tools" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Certification</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">MSCIT</div>
-                </div>
-                <div data-category="tools" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Productivity</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">Advance Excel</div>
-                </div>
-                <div data-category="tools" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Office Suite</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">MS Office &amp; Outlook</div>
-                </div>
-                <div data-category="shopfloor" class="skill-card p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300 group">
-                    <div class="text-[11px] text-slate-500 font-mono uppercase tracking-wider mb-1">Core Concepts</div>
-                    <div class="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">Mechanical Engineering</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects & Internship Section -->
-        <section id="projects" class="reveal space-y-8">
-            <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Projects &amp; Experience</h2>
-                <p class="text-slate-400 text-sm">Click any card to view key technical takeaways.</p>
+        <!-- Work, Project & Internship Split -->
+        <section id="work" class="space-y-8">
+            <div class="border-b border-stone-800 pb-5">
+                <div class="text-xs font-mono text-amber-400 uppercase tracking-widest">03 / Practical Exposure</div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Projects &amp; Industrial Training</h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div data-detail="Focuses on hydraulic force transmission, structural load stability, and practical industrial pressing applications." class="detail-card cursor-pointer p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between space-y-4 group">
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-mono px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                                Mechanical Project
-                            </span>
-                            <span class="text-xs text-slate-500 font-mono">2026</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">
-                            Hydraulic Press Machine
-                        </h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Designed and executed a hydraulic press machine model focusing on fluid power, structural integrity, and industrial pressing applications.
-                        </p>
+                <article class="rounded-2xl border border-stone-800 bg-[#11141a]/85 p-6 hover:border-amber-400/50 transition space-y-4">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="px-2.5 py-1 rounded bg-amber-400/10 text-amber-300 border border-amber-400/20">PROJECT • 2026</span>
+                        <span class="text-stone-500">FLUID &amp; STRUCTURAL</span>
                     </div>
-                    <div class="detail-box hidden pt-3 border-t border-slate-800 text-xs text-emerald-300 font-mono"></div>
-                </div>
+                    <h3 class="text-xl font-bold text-white">Hydraulic Press Machine</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        Designed and executed a hydraulic press machine model focused on hydraulic force transmission, structural rigidity, and practical industrial pressing applications[cite: 6].
+                    </p>
+                </article>
 
-                <div data-detail="Hands-on exposure to manufacturing processes, preventive equipment checks, and disciplined industrial safety practices." class="detail-card cursor-pointer p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between space-y-4 group">
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-mono px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                                Internship Experience
-                            </span>
-                            <span class="text-xs text-slate-500 font-mono">3 Months</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
-                            Mapson India Pvt Ltd, Bhosari
-                        </h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Completed a 3-month industrial internship gaining practical exposure to manufacturing workflows, machinery maintenance, and shop floor operations.
-                        </p>
+                <article class="rounded-2xl border border-stone-800 bg-[#11141a]/85 p-6 hover:border-amber-400/50 transition space-y-4">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="px-2.5 py-1 rounded bg-stone-800 text-stone-200 border border-stone-700">INTERNSHIP • 3 MONTHS</span>
+                        <span class="text-stone-500">BHOSARI, PUNE</span>
                     </div>
-                    <div class="detail-box hidden pt-3 border-t border-slate-800 text-xs text-blue-300 font-mono"></div>
+                    <h3 class="text-xl font-bold text-white">Mapson India Pvt Ltd</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        Completed a 3-month industrial internship gaining direct exposure to manufacturing workflows, equipment maintenance, and shop-floor discipline[cite: 6].
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Matrix -->
+        <section id="skills" class="space-y-8">
+            <div class="border-b border-stone-800 pb-5">
+                <div class="text-xs font-mono text-amber-400 uppercase tracking-widest">04 / Toolkit</div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Technical &amp; Digital Capabilities</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 rounded-xl border border-stone-800 bg-[#11141a]/70">
+                    <div class="text-[10px] font-mono text-amber-400 uppercase">CAD Modeling</div>
+                    <div class="font-bold text-stone-100 mt-1">AutoCAD &amp; CATIA</div>
+                </div>
+                <div class="p-4 rounded-xl border border-stone-800 bg-[#11141a]/70">
+                    <div class="text-[10px] font-mono text-amber-400 uppercase">Mobility &amp; Metrology</div>
+                    <div class="font-bold text-stone-100 mt-1">EV Maintenance &amp; Measuring Tools</div>
+                </div>
+                <div class="p-4 rounded-xl border border-stone-800 bg-[#11141a]/70">
+                    <div class="text-[10px] font-mono text-amber-400 uppercase">Core Domain</div>
+                    <div class="font-bold text-stone-100 mt-1">Mechanical Engineering</div>
+                </div>
+                <div class="p-4 rounded-xl border border-stone-800 bg-[#11141a]/70">
+                    <div class="text-[10px] font-mono text-amber-400 uppercase">Reporting &amp; Office</div>
+                    <div class="font-bold text-stone-100 mt-1">Advance Excel, MS Office, MSCIT</div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="reveal relative overflow-hidden p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-slate-900/90 to-[#0a0a0c] border border-slate-800 text-center space-y-6">
-            <div class="absolute inset-0 bg-emerald-500/5 blur-3xl pointer-events-none"></div>
+        <!-- Contact Strip -->
+        <section id="contact" class="rounded-2xl border border-amber-400/30 bg-gradient-to-br from-[#151922] to-[#0d1015] p-8 sm:p-10">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div class="space-y-2 max-w-xl">
+                    <div class="text-xs font-mono text-amber-400 uppercase tracking-widest">05 / Direct Contact</div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold">Let&apos;s Work Together</h2>
+                    <p class="text-stone-400 text-sm">
+                        Medankarwadi, Chakan, Pune - 410501[cite: 6]. Reach out for engineering internships, technical roles, or discussions.
+                    </p>
+                </div>
 
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100">Let's Connect &amp; Collaborate</h2>
-            <p class="text-slate-400 max-w-lg mx-auto text-sm leading-relaxed">
-                Medankarwadi, Chakan, Pune - 410501. Reach out for internships, entry-level engineering roles, or technical discussions.
-            </p>
-
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-                <a href="mailto:rohitshinde888800@gmail.com" class="px-6 py-3.5 rounded-xl bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition-all duration-300 shadow-lg shadow-emerald-500/20">
-                    rohitshinde888800@gmail.com
-                </a>
-                <button type="button" data-copy="rohitshinde888800@gmail.com" class="copy-btn px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono hover:border-emerald-400 transition">
-                    Copy Email
-                </button>
-                <a href="tel:7741098898" class="px-6 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-semibold hover:bg-slate-800 hover:border-slate-600 transition-all duration-300">
-                    +91 7741098898
-                </a>
-                <button type="button" data-copy="+917741098898" class="copy-btn px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono hover:border-emerald-400 transition">
-                    Copy Phone
-                </button>
+                <div class="flex flex-wrap gap-3">
+                    <a href="mailto:rohitshinde888800@gmail.com" class="px-5 py-3 rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-xs sm:text-sm transition">
+                        rohitshinde888800@gmail.com
+                    </a>
+                    <a href="tel:7741098898" class="px-5 py-3 rounded-lg border border-stone-700 bg-stone-900 hover:border-amber-400 text-stone-100 font-mono text-xs sm:text-sm transition">
+                        +91 7741098898
+                    </a>
+                    <button type="button" data-copy="+917741098898" class="copy-btn px-4 py-3 rounded-lg border border-stone-800 bg-stone-950 hover:border-amber-400 text-stone-300 font-mono text-xs transition">
+                        Copy No.
+                    </button>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-slate-800/60 py-8 text-center text-slate-500 text-xs">
-        <p>&copy; 2026 Rohit Anil Shinde. Mechanical Engineering Portfolio.</p>
+    <footer class="relative z-10 border-t border-stone-800/80 py-7 text-center text-xs font-mono text-stone-500">
+        &copy; 2026 Rohit Anil Shinde • Mechanical Engineering Portfolio
     </footer>
 
     <script src="script.js"></script>

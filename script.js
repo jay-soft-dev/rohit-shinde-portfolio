@@ -1,108 +1,83 @@
-// 1. Scroll progress bar
-const progressBar = document.getElementById("scroll-progress");
-window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    if (progressBar) {
-        progressBar.style.width = `${progress}%`;
-    }
-});
-
-// 2. Reveal sections on scroll
-const revealEls = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-            }
-        });
+// 1. Journey tab switcher
+const journeyData = {
+    be: {
+        status: "CURRENT STAGE • 2ND YEAR",
+        title: "Bachelor of Engineering (B.E.) — Mechanical",
+        meta: "Pursuing",
+        description:
+            "Building stronger theoretical depth in core mechanical subjects, design workflows, and long-term career readiness across industrial and PSU tracks."
     },
-    { threshold: 0.12 }
-);
-revealEls.forEach((el) => revealObserver.observe(el));
+    diploma: {
+        status: "COMPLETED • MSBTE BOARD",
+        title: "Diploma in Mechanical Engineering",
+        meta: "2026 | 73%",
+        description:
+            "Gained practical engineering fundamentals, technical drawing & CAD exposure, and hands-on shop-floor familiarity."
+    },
+    ssc: {
+        status: "COMPLETED • SSC BOARD",
+        title: "Secondary School Certificate (10th)",
+        meta: "2023 | 70.60%",
+        description:
+            "Established foundational academic discipline and quantitative problem-solving habits."
+    }
+};
 
-// 3. Active nav link based on section in view
-const sections = document.querySelectorAll("main section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
+const tabs = document.querySelectorAll(".journey-tab");
+const panel = document.getElementById("journey-panel");
 
-window.addEventListener("scroll", () => {
-    let currentId = "";
-    sections.forEach((sec) => {
-        const top = sec.offsetTop - 140;
-        if (window.scrollY >= top) {
-            currentId = sec.getAttribute("id");
-        }
-    });
+function renderJourney(key) {
+    const item = journeyData[key];
+    if (!item || !panel) return;
 
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${currentId}`) {
-            link.classList.add("active");
-        }
-    });
-});
-
-// 4. Skill category filter
-const filterBtns = document.querySelectorAll(".skill-filter-btn");
-const skillCards = document.querySelectorAll(".skill-card");
-
-filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        filterBtns.forEach((b) => b.classList.remove("active", "bg-emerald-400", "text-black"));
-        btn.classList.add("active");
-
-        const filter = btn.getAttribute("data-filter");
-        skillCards.forEach((card) => {
-            const category = card.getAttribute("data-category");
-            if (filter === "all" || category === filter) {
-                card.classList.remove("hidden");
-            } else {
-                card.classList.add("hidden");
-            }
-        });
-    });
-});
-
-// 5. Expandable details on project/experience cards
-const detailCards = document.querySelectorAll(".detail-card");
-detailCards.forEach((card) => {
-    card.addEventListener("click", () => {
-        const box = card.querySelector(".detail-box");
-        const detailText = card.getAttribute("data-detail");
-        if (!box || !detailText) return;
-
-        box.textContent = detailText;
-        box.classList.toggle("hidden");
-    });
-});
-
-// 6. Copy email / phone helper with toast
-const toast = document.getElementById("toast");
-const copyButtons = document.querySelectorAll(".copy-btn");
-
-function showToast(message) {
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.remove("translate-y-20", "opacity-0");
-    toast.classList.add("translate-y-0", "opacity-100");
-
-    setTimeout(() => {
-        toast.classList.remove("translate-y-0", "opacity-100");
-        toast.classList.add("translate-y-20", "opacity-0");
-    }, 2200);
+    panel.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-2xl">
+                <div class="text-xs font-mono text-amber-400">${item.status}</div>
+                <h3 class="text-xl font-bold text-white">${item.title}</h3>
+                <p class="text-stone-400 text-sm leading-relaxed">${item.description}</p>
+            </div>
+            <div class="self-start md:self-center px-4 py-2 rounded-xl border border-amber-400/30 bg-amber-400/10 font-mono text-sm font-bold text-amber-300">
+                ${item.meta}
+            </div>
+        </div>
+    `;
 }
 
-copyButtons.forEach((btn) => {
+tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active", "bg-amber-400", "text-stone-950", "font-bold"));
+        tab.classList.add("active");
+        renderJourney(tab.getAttribute("data-tab"));
+    });
+});
+
+renderJourney("be");
+
+// 2. Copy contact helper with toast
+const toast = document.getElementById("toast");
+const copyBtns = document.querySelectorAll(".copy-btn");
+
+function notify(msg) {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.remove("translate-y-16", "opacity-0");
+    toast.classList.add("translate-y-0", "opacity-100");
+    setTimeout(() => {
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("translate-y-16", "opacity-0");
+    }, 2000);
+}
+
+copyBtns.forEach((btn) => {
     btn.addEventListener("click", async () => {
-        const value = btn.getAttribute("data-copy");
-        if (!value) return;
+        const val = btn.getAttribute("data-copy");
+        if (!val) return;
         try {
-            await navigator.clipboard.writeText(value);
-            showToast(`Copied: ${value}`);
+            await navigator.clipboard.writeText(val);
+            notify(`Copied: ${val}`);
         } catch {
-            showToast("Could not copy automatically");
+            notify("Could not copy");
         }
     });
 });
